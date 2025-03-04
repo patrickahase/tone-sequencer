@@ -1,4 +1,17 @@
 body {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+
+#horizontalFieldSet{
+  width: fit-content;
+}
+
+#verticalFieldSet{
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
