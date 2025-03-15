@@ -7,7 +7,22 @@ const seq = new Tone.Sequence((time, note) => {
 
 seq.probability = 0.8;
 
-function playNote() {
-  Tone.Transport.stop();
-  Tone.Transport.start();
-}
+let transportToggle = document.getElementById("transport-toggle");
+
+let isPlaying = false;
+
+transportToggle.addEventListener("click", () => {
+  if(isPlaying){
+    transportToggle.innerHTML = "⏵";
+    Tone.Transport.pause();
+  } else {
+    transportToggle.innerHTML = "⏸";
+    Tone.Transport.start();
+  }
+  isPlaying = !isPlaying;
+});
+
+const loop = new Tone.Loop((time) => {
+  // triggered every eighth note.
+  console.log(time);
+}, "8n").start(0);
